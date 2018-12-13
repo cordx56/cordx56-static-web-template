@@ -5,14 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "`npm bin`/npm-run-all -p watch-all start-server",
-    "start-server": "`npm bin`/browser-sync start -s ./dest/ --port 8081 -f ./dest/**",
-    "build-all": "npm run build-pug && npm run build-scss",
-    "build-pug": "`npm bin`/pug -P -o ./dest/ ./src/",
-    "build-scss": "`npm bin`/node-sass -o ./dest/ -r ./src/",
-    "watch-all": "`npm bin`/npm-run-all -p watch-pug watch-scss",
-    "watch-pug": "`npm bin`/nodemon -w src -e pug -x 'npm run build-pug'",
-    "watch-scss": "`npm bin`/nodemon -w src -e scss,sass -x 'npm run build-scss'"
+    "start": "`npm bin`/npm-run-all -p watch:all server:start",
+    "server:start": "`npm bin`/browser-sync start -s ./dest/ --port 8081 -f ./dest/**",
+    "build:all": "`npm bin`/npm-run-all -s build:pug build:scss",
+    "build:pug": "`npm bin`/pug -P -o ./dest/ ./src/",
+    "build:scss": "`npm bin`/node-sass -o ./dest/ -r ./src/",
+    "watch:all": "`npm bin`/npm-run-all -p watch:pug watch:scss",
+    "watch:pug": "`npm bin`/chokidar './src/**/*.pug' -c 'npm run build:pug'",
+    "watch:scss": "`npm bin`/chokidar './src/**/*.scss' './src/**/*.sass' -c 'npm run build:scss'"
   },
   "repository": {
     "type": "git",
