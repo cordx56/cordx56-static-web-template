@@ -2,10 +2,10 @@ version: 2
 jobs:
   build:
     branches:
-      ignore:
-        - gh-pages
+      only:
+        - master
     docker:
-          - image: node:11
+      - image: node:11
     steps:
       - checkout
       - restore_cache:
