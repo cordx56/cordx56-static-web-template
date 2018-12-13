@@ -27,7 +27,7 @@
     "url": "https://github.com/cordx56/cordx56-static-web-template/issues"
   },
   "homepage": "https://github.com/cordx56/cordx56-static-web-template#readme",
-  "dependencies": {
+  "devDependencies": {
     "browser-sync": "^2.26.3",
     "chokidar-cli": "^1.2.1",
     "gh-pages": "^2.0.1",
