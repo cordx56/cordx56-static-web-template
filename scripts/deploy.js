@@ -5,7 +5,7 @@ ghpages.publish("./dest", {
 			name: "Kaoru Tisen",
 			email: "cordx56@cordx.net"
 		},
-		message: "Web page AUTO UPDATE"
+		message: "Web page AUTO UPDATE [ci skip]"
 	}, function(err) {
 		if (err) {
 			console.log(err);
