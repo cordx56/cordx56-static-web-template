@@ -1,3 +1,6 @@
 .wrapper {
   margin: 10%;
-  text-align: center; }
+  text-align: center;
+  font-family: "Raleway", sans-serif; }
+  .wrapper h1 {
+    font-family: "Noto Serif SC", serif; }
