@@ -9,13 +9,15 @@
     "start": "npm run build && `npm bin`/npm-run-all -p watch:all server:start",
     "server:start": "`npm bin`/browser-sync start -s ./dest/ --port 8081 -f ./dest/**",
     "build": "npm run build:all",
-    "build:all": "`npm bin`/npm-run-all -s build:pug build:scss",
+    "build:all": "`npm bin`/npm-run-all -s build:pug build:scss copy-files",
     "build:pug": "`npm bin`/pug -P -o ./dest/ ./src/",
     "build:scss": "`npm bin`/node-sass -o ./dest/ -r ./src/",
     "watch": "npm run watch:all",
-    "watch:all": "`npm bin`/npm-run-all -p watch:pug watch:scss",
+    "watch:all": "`npm bin`/npm-run-all -p watch:pug watch:scss watch:files",
     "watch:pug": "`npm bin`/chokidar './src/**/*.pug' -c 'npm run build:pug'",
-    "watch:scss": "`npm bin`/chokidar './src/**/*.scss' './src/**/*.sass' -c 'npm run build:scss'"
+    "watch:scss": "`npm bin`/chokidar './src/**/*.scss' './src/**/*.sass' -c 'npm run build:scss'",
+    "watch:files": "`npm bin`/chokidar './src/**/*' -c 'npm run copy-files'",
+    "copy-files": "mkdir -p ./dest && cd ./src && find ./ -type f | grep -iEv '\\.(pug|slim|scss)$' | xargs -r cp --parents -u -t ../dest ; cd ../"
   },
   "repository": {
     "type": "git",
