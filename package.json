@@ -17,7 +17,8 @@
     "watch:pug": "`npm bin`/chokidar './src/**/*.pug' -c 'npm run build:pug'",
     "watch:scss": "`npm bin`/chokidar './src/**/*.scss' './src/**/*.sass' -c 'npm run build:scss'",
     "watch:files": "`npm bin`/chokidar './src/**/*' -c 'npm run copy-files'",
-    "copy-files": "mkdir -p ./dest && cd ./src && find ./ -type f | grep -iEv '\\.(pug|slim|scss)$' | xargs -r cp --parents -u -t ../dest ; cd ../"
+    "copy-files": "mkdir -p ./dest && cd ./src && find ./ -type f | grep -iEv '\\.(pug|slim|scss)$' | xargs -r cp --parents -u -t ../dest ; cd ../",
+    "update-html-indent": "find ./dest -type f | grep -iE '\\.(html|htm)$' | xargs sed -i -r 's/^( +)/\\1\\1/g'"
   },
   "repository": {
     "type": "git",
